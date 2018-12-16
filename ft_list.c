@@ -6,7 +6,7 @@
 /*   By: lwyl-the <lwyl-the@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 12:50:13 by rgyles            #+#    #+#             */
-/*   Updated: 2018/12/15 18:34:28 by lwyl-the         ###   ########.fr       */
+/*   Updated: 2018/12/16 15:58:59 by rgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,16 @@ int				ft_count_list(t_tetr *head)
 
 void			ft_free_list(t_tetr **head)
 {
-	t_tetr		*tmp;
+	t_tetr	*tmp;
 
-	while (*head)
+	if (*head == NULL)
+		return ;
+	while (*head != NULL)
 	{
-		tmp = (*head)->next;
-		free(*head);
-		*head = tmp;
+		tmp = *head;
+		(*head) = (*head)->next;
+		free(tmp);
+		tmp = NULL;
 	}
 	*head = NULL;
 }

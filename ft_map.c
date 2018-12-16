@@ -6,7 +6,7 @@
 /*   By: lwyl-the <lwyl-the@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 11:29:24 by rgyles            #+#    #+#             */
-/*   Updated: 2018/12/15 14:34:24 by lwyl-the         ###   ########.fr       */
+/*   Updated: 2018/12/16 16:28:51 by rgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void		ft_delete_map(char **map)
 char		*ft_create_map(int size)
 {
 	char	*map;
-	size_t	length;
 	size_t	i;
+	size_t	length;
 
 	i = 0;
 	length = size * (size + 1);
@@ -31,7 +31,7 @@ char		*ft_create_map(int size)
 	map = ft_memset(map, '.', length);
 	i += size;
 	map[i] = '\n';
-	while (i <= length)
+	while (i < (length - 1))
 	{
 		i += size + 1;
 		map[i] = '\n';

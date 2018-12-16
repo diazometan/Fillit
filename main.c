@@ -6,7 +6,7 @@
 /*   By: lwyl-the <lwyl-the@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:54:38 by rgyles            #+#    #+#             */
-/*   Updated: 2018/12/15 18:46:11 by lwyl-the         ###   ########.fr       */
+/*   Updated: 2018/12/16 15:58:52 by rgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,16 @@ int				ft_read(char *str, t_tetr **head)
 
 int				main(int args, char **argv)
 {
-	int			kek;
+	int			ret;
 	t_tetr		*head;
 
 	head = NULL;
-	kek = 0;
 	if (args == 2)
 	{
-		if (!(kek = ft_read(argv[1], &head)))
-		{
+		if (!(ret = ft_read(argv[1], &head)))
 			ft_putstr("error\n");
-			ft_free_list(&head);
-			return (0);
-		}
-		ft_solve(&head);
+		else
+			ft_solve(&head);
 		ft_free_list(&head);
 	}
 	else
